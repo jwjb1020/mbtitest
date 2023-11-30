@@ -9,6 +9,7 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
   > 기본적인 뼈대를 잡고 혼자 계획을 세움<br>
 기본적으로 next.js로 프론트와 백 전부 구성할 것임<br>
 먼저 터미널에 npx create-next-app@latest 로 프로젝트를 하나 만들고 초기화를 시킴<br>
-db에 접근 가능할 수 있도록 함수 만들고 .env를 사용해서 환경변수 생성
+db에 접근 가능할 수 있도록 함수 만들고 .env를 사용해서 환경변수 생성<br>
+test 코드로 잘 연결되는 지 확인하기 위해 jest라는 라이브러리 인스톨함 [jest library](https://nextjs.org/docs/pages/building-your-application/optimizing/testing#jest-and-react-testing-library)
 
 
