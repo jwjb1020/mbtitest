@@ -3,7 +3,8 @@ module.exports = {
     // on node 14.x coverage provider v8 offers good speed and more or less good report
     coverageProvider: 'v8',
     collectCoverageFrom: [
-      '**/*.{js,jsx,ts,tsx}',
+      //나중에 여기서 모든 코드를 테스트 할려면 test빼기
+      '**/test.{js,jsx,ts,tsx}',
       '!**/*.d.ts',
       '!**/node_modules/**',
       '!<rootDir>/out/**',
