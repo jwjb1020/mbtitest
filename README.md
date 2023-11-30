@@ -1,36 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 프로젝트 개요
 
-## Getting Started
+Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹 사이트
 
-First, run the development server:
+프로젝트는 [개인노션](https://jwjb1020.notion.site/Mbti-e66a3a109fd049619685b3c9e4ee2fd8?pvs=4)을 이용하여 체계적으로 만들도록 노력함.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 날짜별 작업 현황
+- 2023.11.30
+  > 기본적인 뼈대를 잡고 혼자 계획을 세움<br>
+기본적으로 next.js로 프론트와 백 전부 구성할 것임<br>
+먼저 터미널에 npx create-next-app@latest 로 프로젝트를 하나 만들고 초기화를 시킴
