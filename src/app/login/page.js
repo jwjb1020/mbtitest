@@ -20,12 +20,7 @@ export default function Login() {
       },
       body: JSON.stringify({ nickname, password }),
     })
-    .then(res => {
-      if (!res.ok) {
-        return res.json().then(data => Promise.reject(data.error));
-      }
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
 
       if(data.message == "failed"){
@@ -34,9 +29,12 @@ export default function Login() {
       else{
         
         alert(`${data.user.name}님 환영합니다.`)
-        router.push("/")
+        router.replace("/")
         
-
+        // router.replace("/") 다음에 일정 시간 후에 새로고침을 실행
+        setTimeout(() => {
+          window.location.reload();
+        }, 100); // 예: 100 밀리초 후에 새로고침
       }
       
     })
