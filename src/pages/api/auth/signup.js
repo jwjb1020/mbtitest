@@ -1,7 +1,7 @@
 import pool from "@/db/config";
 //비밀번호 암호화 라이브러리
-import bycrypt from "bcrypt"
-
+import bcrypt from "bcrypt"
+require('dotenv').config();
 export default async function handler(req,res){
     // 예외처리
     try {
@@ -11,7 +11,7 @@ export default async function handler(req,res){
         const {name, nickname, email, password,sex} = req.body;
         
         // 패스워드 암호화
-        const hashedPassword = await bycrypt.hash(password, 10);
+        const hashedPassword = await bcrypt.hash(password, 10);
         //db연결
         const connectDB = await pool;
 
