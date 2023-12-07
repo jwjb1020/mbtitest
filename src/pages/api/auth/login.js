@@ -52,7 +52,6 @@ export default async function handler(req,res){
         try {
             // 요청에서 쿠키에서 토큰 가져오기
             const token = req.cookies.jwt; 
-            console.log(token)
             if (token) {
               // jwt 토큰이 존재하면 검증
               const decodedToken = jwt.verify(token, 'test'); // 여기서 'test'는 JWT 시크릿 키입니다.

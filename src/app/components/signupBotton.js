@@ -15,6 +15,7 @@ export default function SignupButton(){
     }
     const goLoginPage =()=>{
         router.push("/login")
+        
     }
 
     
@@ -36,7 +37,7 @@ export default function SignupButton(){
             console.error('Error fetching login status:', error);
           })
           
-      }, [isLoggedIn]);
+      }, []);
 
       const handleLogout = () => {
         fetch("/api/auth/logout",{
@@ -48,7 +49,8 @@ export default function SignupButton(){
             if(data.message =="success"){
                 alert("로그아웃 성공")
                 setIsLoggedIn(data.isLoggedIn);
-                router.refresh("/")
+                // router.refresh("/")
+                router.push("/")
             }
             
         })
