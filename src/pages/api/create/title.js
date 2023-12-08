@@ -19,7 +19,9 @@ export default async function handler(req, res) {
             console.log(title, content, thumbnail);
             const connectDB = await pool;
             await connectDB.query("insert into question (user_id, title, content, thumbnail_url) values (?,?,?,?)",[user_id, title, content, thumbnail]);
-            res.status(200).json({message: "success"})
+            const [questionInfo] = await connectDB.query("select question_id from question where user_id = ? and title =?",[user_id,title])
+            const question_id = questionInfo[0].question_id
+            res.status(200).json({message: "success", userId : user_id , questionId :question_id  })
         }
     } catch (error) {
         res.status(500).json(error)
