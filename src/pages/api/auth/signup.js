@@ -25,7 +25,7 @@ export default async function handler(req,res){
         }
 
         //똑같은 아이디 있으면 안됨
-        if (check.length > 0) {
+        else if (check.length > 0) {
             // 에러메세지
             res.status(400).json({message : "failed", error : "아이디 중복"})
         } else {
