@@ -6,13 +6,17 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
 
 ## 날짜별 작업 현황
 - 2023.12.08
-  > db - 변경사항 없음
+  > db
+   - question table에 섬네일 추가
+   - answer table 이름 questionDetail로 변경
 
   > back 
    - 회원가입 error 코드 생성
+   - /api/question 코드 수정 중
   
   > front
    - 회원가입 form 태그 속성 action -> onSubmit으로 변경
+   - /create/make 페이지  css 추가
 
 - 2023.12.07
   > db - 변경사항 없음
