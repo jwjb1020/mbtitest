@@ -34,7 +34,7 @@ export default function Login() {
         // router.replace("/") 다음에 일정 시간 후에 새로고침을 실행
         setTimeout(() => {
           window.location.reload();
-        }, 100); // 예: 100 밀리초 후에 새로고침
+        }, 200); // 예: 100 밀리초 후에 새로고침
       }
       
     })
