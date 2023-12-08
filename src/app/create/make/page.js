@@ -27,9 +27,13 @@ export default function make() {
                 if (data.message == "Failed") {
                     alert(data.error);
                     router.push("/login");
-                } 
-                else if( data.message == "success"){
-                  router.push("/create")
+                } else if (data.message == "success") {
+                    const userId = data.userId;
+                    const questionId = data.questionId;
+                    console.log(userId, questionId);
+                    router.push(
+                        `/create/?userId=${userId}&questionId=${questionId}`
+                    );
                 }
             })
             .catch((error) => {
