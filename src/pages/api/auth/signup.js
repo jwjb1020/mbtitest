@@ -21,7 +21,7 @@ export default async function handler(req,res){
         
         // 패스워드 일치 체크
         if(password != confirmPassword){
-            res.status(200).json({message: "failed", error : "패스워드 불일치"})
+            res.status(404).json({message: "failed", error : "패스워드 불일치"})
         }
 
         //똑같은 아이디 있으면 안됨
