@@ -19,7 +19,5 @@ export default async function handler(req, res) {
       console.error('Error removing token:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
-  } else {
-    res.status(405).json({ error: 'Method Not Allowed' });
-  }
+  } 
 }
