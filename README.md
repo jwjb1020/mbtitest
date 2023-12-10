@@ -5,6 +5,17 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
 프로젝트는 [개인노션](https://jwjb1020.notion.site/Mbti-e66a3a109fd049619685b3c9e4ee2fd8?pvs=4)을 이용하여 체계적으로 만들도록 노력함.
 
 ## 날짜별 작업 현황
+- 2023.12.10
+  > db - 변경사항 없음
+
+  > back
+   - 문제 디테일 넣는 /api/question 수정 완료
+   - 전체적인 코드 정리
+  
+  > front
+   - useSearchParams 훅을 이용하여 url에서 회원아이디 현제 만들고 있는 문제 번호 가지고 옴
+   - post로 데이터 보내고 받는 코드 생성
+
 - 2023.12.08
   > db
    - question table에 섬네일 추가
