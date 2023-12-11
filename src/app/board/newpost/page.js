@@ -9,7 +9,7 @@ export default function Board() {
 
     return (
         <div>
-            <h4>자유게시판</h4>
+            <h4>자유게시판 글 작성</h4>
             <div>
                 <input onChange={(e) => setTitle(e.target.value)} placeholder="글 제목" />
                 <input onChange={(e) => setContent(e.target.value)} placeholder="글 내용" />
