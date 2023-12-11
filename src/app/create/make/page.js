@@ -15,7 +15,7 @@ export default function make() {
             thumbnail: thumbnail,
         };
 
-        fetch(`/api/create/title`, {
+        fetch(`/api/testsheet/create/title`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
