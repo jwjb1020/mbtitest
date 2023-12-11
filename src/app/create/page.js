@@ -23,7 +23,7 @@ export default function Create() {
             questionId: questionId,
         };
 
-        fetch(`/api/create/question`, {
+        fetch(`/api/testsheet/create/question`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
