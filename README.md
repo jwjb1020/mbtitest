@@ -5,6 +5,22 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
 프로젝트는 [개인노션](https://jwjb1020.notion.site/Mbti-e66a3a109fd049619685b3c9e4ee2fd8?pvs=4)을 이용하여 체계적으로 만들도록 노력함.
 
 ## 날짜별 작업 현황
+- 2023.12.11 
+  프로젝트 참여자 한명(박수현) 추가
+
+  > db 
+   - questionDetail 테이블에 mbtiType1, mbtiType2 컬럼 추가
+  
+  > back
+   - api 폴더 정리
+   - /api/testsheet/question , /api/testsheet/title
+   - /api/testsheet/show 추가(만들어진 문제 보여주는 기능)
+
+  > front
+   - 문제 디테일 만드는 페이지 추가
+   - mbti 유형별 답변 추가
+   - 문제가 완성되면 홈으로 이동
+
 - 2023.12.10
   > db - 변경사항 없음
 
