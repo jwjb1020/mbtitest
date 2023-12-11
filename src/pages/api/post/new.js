@@ -34,9 +34,6 @@ export default async function handler(request, response) {
         } catch(error) {
             console.error('Error saving post: ', error)
             response.status(500).json({ success: false, message: 'Internal server error'})
-        } finally {
-            // Close the Mysql connection
-            await connectDB.end()
-        }        
+        }       
     }
 }
