@@ -23,7 +23,7 @@ export default async function handler(request, response) {
         const connectDB = await pool;
 
         try {
-            // Insert new post into the 'post' table using the execute method
+            // Insert new post into the 'post' table using the query method
             const [result] = await connectDB.query(
                 'INSERT INTO post SET ?',
                 [newPost]

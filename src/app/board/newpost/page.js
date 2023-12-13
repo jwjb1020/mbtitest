@@ -14,9 +14,19 @@ export default function Board() {
                 <input onChange={(e) => setTitle(e.target.value)} placeholder="글 제목" />
                 <input onChange={(e) => setContent(e.target.value)} placeholder="글 내용" />
                 <button onClick={() => {
-                    fetch('api/post/new', {
+                    fetch('/api/post/new', {
                         method: 'POST',
                         body: JSON.stringify({ title: title, content: content })
+                    })
+                    .then((response) => 
+                        response.json()
+                    )
+                    .then((result) => {
+                        if(result.success == true) {
+                            console.log(result.message)
+                        } else {
+                            console.log(result.message)
+                        }
                     })
 
                 }}>게시물 등록</button>

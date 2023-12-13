@@ -10,7 +10,7 @@ export default function Deatil(props) {
         fetch("/api/post/detail?postId=" + props.params.id)
             .then((response) => response.json())
             .then((result) => {
-                console.log(result.detailedPost[0]);
+                // console.log(result.detailedPost[0]);
                 setDetails(result.detailedPost[0])
             });
     }, []);
