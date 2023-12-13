@@ -28,10 +28,7 @@ export default function Create() {
             questionId: questionId,
             mbtiTypes: [mbtiType1, mbtiType2],
         };
-        if (currentQuestion == 12) {
-            router.push("/");
-            return;
-        }
+        
         fetch(`/api/testsheet/create/question`, {
             method: "POST",
             headers: {
@@ -63,7 +60,12 @@ export default function Create() {
                         case 9:
                             setMbtiType1("P");
                             setMbtiType2("J");
+                          
                             break;
+                    }
+                    if (currentQuestion == 12) {
+                        router.push("/create/maketype");
+                        return;
                     }
                 } else {
                     console.log(data.error);
@@ -97,7 +99,7 @@ export default function Create() {
                 required
                 onChange={(e) => setAnswer1(e.target.value)}
             />
-             <p>{mbtiType2}유형 답변</p>
+            <p>{mbtiType2}유형 답변</p>
             <input
                 className="w-full py-2 px-4 mb-4 border border-gray-300 rounded"
                 type="text"
@@ -107,7 +109,6 @@ export default function Create() {
                 required
                 onChange={(e) => setAnswer2(e.target.value)}
             />
-            
 
             <button
                 className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
