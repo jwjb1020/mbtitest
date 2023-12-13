@@ -35,7 +35,7 @@ export default async function handler(req, res) {
                     };
                     const secretKey = "test"; // JWT 시크릿 키
                     const token = jwt.sign(user, secretKey, {
-                        expiresIn: "1h",
+                        expiresIn: "5h",
                     }); // 토큰 만료 시간 설정 (예: 1시간)
                     // 헤더에 jwt값 쿠키로 넣어 전송
                     res.setHeader(

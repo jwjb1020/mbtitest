@@ -28,7 +28,6 @@ export default function Create() {
             questionId: questionId,
             mbtiTypes: [mbtiType1, mbtiType2],
         };
-        
         fetch(`/api/testsheet/create/question`, {
             method: "POST",
             headers: {
