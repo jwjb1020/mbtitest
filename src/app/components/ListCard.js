@@ -1,7 +1,8 @@
 import Image from "next/image";
+import StartButton from "./StartButton";
 
 export default function ListCard({ data }) {
-    // console.log(data)
+    console.log(data)
 
     return (
         <div className="max-w-sm bg-slate-400 border rounded-lg shadow">
@@ -24,6 +25,7 @@ export default function ListCard({ data }) {
                 <p className="mb-3 font-normal text-gray-700 ">
                     {data.content}
                 </p>
+                <StartButton quesitonId ={data.quesiton_id}/>
             </div>
         </div>
     );
