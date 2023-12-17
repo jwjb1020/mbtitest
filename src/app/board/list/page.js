@@ -13,7 +13,7 @@ export default function List() {
         })
             .then((response) => response.json())
             .then((result) => {
-                if (result.message == "success") {
+                if (result.success = true) {
                     setData(result.postList)
                 }
             });

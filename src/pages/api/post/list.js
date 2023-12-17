@@ -9,10 +9,10 @@ export default async function handler(request, response) {
             // ask all of post table's data
             const [postList] = await connectDB.query("SELECT * FROM post");
     
-            response.status(200).json({ message: "success", postList });
+            response.status(200).json({ success: true, message: "The list of post is well-extracted", postList });
         }
     } catch(error) {
         console.error('Failed to get data', error)
-        response.status(500).json({ sucess: false, message: "Internal server error" })
+        response.status(500).json({ success: false, message: "Internal server error" })
     }     
 }
