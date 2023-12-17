@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Navbar from './components/navbar'
+import Navbar from "./components/Navbar"
 import './globals.css'
-import SignupButton from './components/signupBotton'
+import SignupButton from './components/SignupBotton'
 
 export const metadata = {
   title: 'MbtiTest',
