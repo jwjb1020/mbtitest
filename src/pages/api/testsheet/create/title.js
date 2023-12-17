@@ -11,7 +11,7 @@ export default async function handler(req, res) {
             });
         } else {
             // 헤더 쿠키에서 사용자 정보 디코딩
-            const decodingJwt = jwt.verify(req.cookies.jwt, "test");
+            const decodingJwt = jwt.verify(req.cookies.jwt, process.env.SECRET_KEY);
             const user_id = decodingJwt.userID;
 
             // 문제정보
