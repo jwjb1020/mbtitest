@@ -1,11 +1,13 @@
 "use client";
 import InsertMbtiType from "@/app/components/InsertMbtiType";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function maketype() {
     // mbti에 해당하는 값 입력하고 저장하는 페이지
     const [mbtiValues, setMbtiValues] = useState({});
-    console.log(mbtiValues);
+    const router = useRouter();
+    // console.log(mbtiValues);
     // 타입을 key value 값으로 임시 저장
     const handleMbtiTypeChange = (type, value) => {
         setMbtiValues((prevValues) => ({ ...prevValues, [type]: value }));
@@ -37,6 +39,9 @@ export default function maketype() {
             .then((res) => res.json())
             .then((result) => {
                 if (result.message == "success") {
+                    router.push("/list");
+                } else {
+                    alert(result.error);
                 }
             });
     };
