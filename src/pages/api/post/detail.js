@@ -12,7 +12,7 @@ export default async function handler(request, response) {
                 postId
             );
 
-            response.status(200).json({ message: "success", detailedPost });
+            response.status(200).json({ success: true, message: "The list of posts is well-extracted", detailedPost });
         }
     } catch (error) {
         console.error("Failed to get Detailed post information", error);

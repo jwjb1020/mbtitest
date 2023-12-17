@@ -8,7 +8,8 @@ export default function Edit(props) {
     useEffect(() => {
         fetch("/api/post/detail?postId=" + props.params.id)
             .then((response) => response.json())
-            .then((result) => setDeatils(result.detailedPost[0]));
+            .then((result) => setDeatils(result.detailedPost[0])                
+            );
     });
 
     return (
