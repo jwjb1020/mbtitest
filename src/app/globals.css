@@ -4,9 +4,11 @@
 @tailwind utilities;
 
 .font-nanumPen {
-    font-family: "Nanum Pen Script", cursive;
+
+    font-family: 'Nanum Pen Script', cursive;
     font-size: x-large;
-}
+  }
+
 
 .list-item {
     background: white;
