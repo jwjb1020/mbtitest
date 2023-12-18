@@ -33,7 +33,7 @@ export default async function handler(req, res) {
                         nickname: nickname,
                         role: userInfo[0].role,
                     };
-                    const secretKey = "test"; // JWT 시크릿 키
+                    const secretKey = process.env.SECRET_KEY // JWT 시크릿 키
                     const token = jwt.sign(user, secretKey, {
                         expiresIn: "5h",
                     }); // 토큰 만료 시간 설정 (예: 1시간)
@@ -63,7 +63,7 @@ export default async function handler(req, res) {
             const token = req.cookies.jwt;
             if (token) {
                 // jwt 토큰이 존재하면 검증
-                const decodedToken = jwt.verify(token, "test"); // 여기서 'test'는 JWT 시크릿 키입니다.
+                const decodedToken = jwt.verify(token, process.env.SECRET_KEY); // 여기서 'test'는 JWT 시크릿 키입니다.
 
                 // 검증 성공 시 로그인 상태 전달
                 res.status(200).json({ isLoggedIn: true, user: decodedToken });
