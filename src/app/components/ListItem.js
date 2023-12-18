@@ -12,12 +12,13 @@ export default function ListItem({ data }) {
         fetch("/api/post/list")
             .then((response) => response.json())
             .then((result) => {
-                if (result.success) {
+                if (result.success && result.decodedToken) {
                     setLoginUser(result.decodedToken.userID);
                 }
             });
     }, []);
 
+    // console.log(data)
     return (
         <div>
             {data.map((item, i) => {
