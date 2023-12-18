@@ -6,16 +6,25 @@ export default async function handler(req, res) {
             if (req.cookies.jwt) {
                 try {
                     const cookies = req.cookies.jwt;
-                    const decodedToken = jwt.verify(cookies, process.env.SECRET_KEY);
+                    const decodedToken = jwt.verify(
+                        cookies,
+                        process.env.SECRET_KEY
+                    );
                     const connectDB = await pool;
                     const [questionList] = await connectDB.query(
                         "select * from question"
                     );
                     const list = questionList;
+                
+                    // db에서 user아이디와 이름 가져오기
+                    const [userInfo] = await connectDB.query(
+                        "select user_id,name from user"
+                    );
                     res.status(200).json({
                         message: "success",
                         list,
                         decodedToken,
+                        userInfo
                     });
                 } catch (error) {
                     res.status(404).json({
@@ -30,7 +39,12 @@ export default async function handler(req, res) {
                     "select * from question"
                 );
                 const list = questionList;
-                res.status(200).json({ message: "success", list });
+                // db에서 user아이디와 이름 가져오기
+                const [userInfo] = await connectDB.query(
+                    "select user_id,name from user"
+                );
+                
+                res.status(200).json({ message: "success", list,userInfo });
             }
         }
     } catch (error) {
