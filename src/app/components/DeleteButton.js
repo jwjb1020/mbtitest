@@ -6,7 +6,7 @@ export default function DeleteButton(data) {
     const router = useRouter();
 
     const boardList = (e) => {
-        console.log(data);
+        // console.log(data);
         fetch("/api/post/delete", {
             method: "DELETE",
             body: data.data[data.i].post_id,
