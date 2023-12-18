@@ -16,10 +16,15 @@ export default function Board() {
                 <button onClick={() => {
                     fetch('/api/post/new', {
                         method: 'POST',
+                        headers: {
+                            'Content-Type':'appliication/json',
+                        },
                         body: JSON.stringify({ title: title, content: content })
                     })
-                    .then((response) => 
+                    .then((response) => {
+                        window.location.href='/board/list'
                         response.json()
+                    }
                     )
                     .then((result) => {
                         if(result.success == true) {
