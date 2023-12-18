@@ -5,9 +5,10 @@
 
 .font-nanumPen {
     font-family: 'Nanum Pen Script', cursive;
+    font-size: x-large;
   }
 
-  .list-item {
+.list-item {
     background: white;
     border-radius: 10px;
     padding: 20px;
