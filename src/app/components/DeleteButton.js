@@ -24,7 +24,9 @@ export default function DeleteButton(data) {
             })
             .then((result) => {
                 console.log(result.message);
+                // router.refresh()랑 router.push()로 페이지 재랜더링 하는 것에 실패
                 // router.push('/board/list')
+                // window.location.href로는 재랜더링이 되지만 페이지 전체가 랜더링 되는 것이 싫어서 상기의 이벤트 애니메이션 사용
                 // window.location.href='/board/list'
             });
     };
