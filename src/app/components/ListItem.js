@@ -20,7 +20,7 @@ export default function ListItem({ data }) {
 
     // console.log(data)
     return (
-        <div>
+        <div>            
             {data.map((item, i) => {
                 return (
                     <div className="list-item" key={i}>
