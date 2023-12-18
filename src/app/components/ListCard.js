@@ -6,8 +6,10 @@ import EditButton from "./EditButton";
 import { useEffect, useState } from "react";
 
 export default function ListCard({ data }) {
+    // console.log(data)
     //로그인된 회원 정보 맞추기
     const [loginedUser, setLoginedUser] = useState();
+    const [userInfo, setUserInfo] = useState([]);
     useEffect(() => {
         fetch("/api/testsheet/show")
             .then((res) => res.json())
@@ -15,11 +17,12 @@ export default function ListCard({ data }) {
                 if ((result.message = "success")) {
                     // 서버측에서 쿠키에 있는 로그인된 유저 정보 가지고 오기
                     setLoginedUser(result.decodedToken);
+                    setUserInfo(result.userInfo)
                 } else {
                     console.log(result.error);
                 }
             });
-    }, []);
+    }, [data]);
     //회원이 아닐때 볼 수 있도록 만들기
     // 로그인 된 유저 아이디
     let userId;
@@ -27,11 +30,18 @@ export default function ListCard({ data }) {
         userId = loginedUser.userID;
     }
 
-    // console.log(userId);
+    // 작성자 이름 알려주는 코드 
+    let name
+    const test = userInfo.map((user)=>{
+    if(user.user_id == data.user_id){
+        name= user.name
+
+    }}
+    )
 
     // 문제를 작성한 유저 아이디
     const listUserId = data.user_id;
-    // console.log(listUserId);
+    
 
     return (
         <div className="max-w-sm bg-slate-400 border rounded-lg shadow">
@@ -54,10 +64,13 @@ export default function ListCard({ data }) {
                 <p className="mb-3 font-normal text-gray-700 ">
                     {data.content}
                 </p>
-                <StartButton quesitonId={data.quesiton_id} />
+                <p className="mb-3 font-normal text-gray-700 ">
+                    작성자 : {name}
+                </p>
+                <StartButton questionId={data.question_id} />
                 {loginedUser && userId === listUserId && (
                     <>
-                        <DeleteButton quesitonId={data.quesiton_id} />
+                        <DeleteButton buttonType={"listDelete"} questionId={data.question_id} />
                         <EditButton quesiton_id={data.quesiton_id} />
                     </>
                 )}
