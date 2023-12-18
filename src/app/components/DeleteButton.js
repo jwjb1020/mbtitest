@@ -5,8 +5,7 @@ import { useRouter } from "next/navigation";
 export default function DeleteButton(data) {
     const router = useRouter();
 
-    function boardList() {}
-    const boardList2 = (e) => {
+    const boardList = (e) => {
         console.log(data);
         fetch("/api/post/delete", {
             method: "DELETE",
@@ -32,7 +31,7 @@ export default function DeleteButton(data) {
     const deleteType = (e) => {
         switch (data.buttonType) {
             case "boardDelete":
-                return boardList2(e);
+                return boardList(e);
             case "??":
         }
 
