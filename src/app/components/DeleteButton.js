@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function DeleteButton(data) {
     const router = useRouter();
-
-    function boardList() {}
+    // 자유게시판 삭제 버튼
     const boardList2 = (e) => {
         console.log(data);
         fetch("/api/post/delete", {
@@ -29,15 +28,31 @@ export default function DeleteButton(data) {
                 // window.location.href='/board/list'
             });
     };
+    // 문제풀기 삭제 버튼
+    const listDelete = () => {
+        // console.log("data",data);
+        fetch("/api/testsheet/delete", {
+            method: "DELETE",
+            body: data.questionId,
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                if (result.message == "success") {
+                    // 새로고침 
+                    location.reload();
+                } else {
+                    console.log(result.error);
+                }
+            });
+    };
+    // 버튼 타입에 따라 다른 함수 실행 코드
     const deleteType = (e) => {
         switch (data.buttonType) {
             case "boardDelete":
                 return boardList2(e);
-            case "??":
+            case "listDelete":
+                return listDelete();
         }
-
-        console.log("DeleteButton Test");
-        console.log(data);
     };
     return (
         <button
