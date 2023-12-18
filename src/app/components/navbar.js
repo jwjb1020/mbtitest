@@ -1,10 +1,5 @@
 "use client"
 import Link from "next/link";
-
-
-
-
-
 export default function Navbar(){
     return(
         <nav className={`glow flex items-center font-nanumPen space-x-16`}>
