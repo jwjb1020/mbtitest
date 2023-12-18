@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function ListCard({ data }) {
     //로그인된 회원 정보 맞추기
-    const [loginedUser, setLoginedUser] = useState("");
+    const [loginedUser, setLoginedUser] = useState();
     useEffect(() => {
         fetch("/api/testsheet/show")
             .then((res) => res.json())
@@ -15,16 +15,23 @@ export default function ListCard({ data }) {
                 if ((result.message = "success")) {
                     // 서버측에서 쿠키에 있는 로그인된 유저 정보 가지고 오기
                     setLoginedUser(result.decodedToken);
+                } else {
+                    console.log(result.error);
                 }
             });
     }, []);
+    //회원이 아닐때 볼 수 있도록 만들기
     // 로그인 된 유저 아이디
-    const userId = loginedUser.userID;
-    console.log(userId);
+    let userId;
+    if (loginedUser != null) {
+        userId = loginedUser.userID;
+    }
+
+    // console.log(userId);
 
     // 문제를 작성한 유저 아이디
     const listUserId = data.user_id;
-    console.log(listUserId);
+    // console.log(listUserId);
 
     return (
         <div className="max-w-sm bg-slate-400 border rounded-lg shadow">
@@ -48,13 +55,11 @@ export default function ListCard({ data }) {
                     {data.content}
                 </p>
                 <StartButton quesitonId={data.quesiton_id} />
-                {userId == listUserId ? (
+                {loginedUser && userId === listUserId && (
                     <>
                         <DeleteButton quesitonId={data.quesiton_id} />
                         <EditButton quesiton_id={data.quesiton_id} />
                     </>
-                ) : (
-                    <></>
                 )}
             </div>
         </div>

@@ -32,7 +32,11 @@ export default async function handler(req, res) {
                     question_id,
                 ]
             );
-
+            // 문제 아이디 넣어서 보내기
+            res.setHeader(
+                "Set-Cookie",
+                `questionId=${question_id}; Path=/; HttpOnly`
+            );
             res.status(200).json({ message: "success" });
         } catch (error) {
             res.status(500).json({ message: "failed", error: "db error" });
