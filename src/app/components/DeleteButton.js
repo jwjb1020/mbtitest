@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 export default function DeleteButton(data) {
-    const router = useRouter();
+    // const router = useRouter();
 
     const boardList = (e) => {
         // console.log(data);
