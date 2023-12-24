@@ -31,13 +31,13 @@ export default function ListItem({ data }) {
                         {/* 로그인 유저에 따라 수정/삭제 버튼의 유무 표시하기 위해 삼항연산자를 활용*/}
                         {loginUser == data[i].user_id ? (
                             <div className="list-button">
-                                {/* <Link
+                                <Link
+                                    // rel="preload"
                                     className="text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
                                     href={`/board/edit/${data[i].post_id}`}
                                 >
                                     수정 ✏️
-                                </Link> */}
-                                <EditButton />
+                                </Link>                          
                                 <DeleteButton
                                     buttonType={"boardDelete"}
                                     data={data}
