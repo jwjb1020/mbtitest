@@ -5,6 +5,12 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
 프로젝트는 [개인노션](https://jwjb1020.notion.site/Mbti-e66a3a109fd049619685b3c9e4ee2fd8?pvs=4)을 이용하여 체계적으로 만들도록 노력함.
 
 ## 날짜별 작업 현황
+-2023.12.25
+> middleware
+  - jwt.verify() 함수로 가지고 올 수 없었던 jwt token 정보를 jwt.decoded() 함수로 가지고 와서 처리함
+    - verify() 함수는 유효성을 검사하는 함수로 주로 서버 측에서 사용하기 때문에 에러가 난 것으로 보고 있음, 유효성 검사는 서버 단에서 하는 것이 좋음
+    - decode() 함수를 사용하면 클라이언트 측에서 토큰의 유효성 검사는 하지 않고 디코딩만 가능하게 해줌
+    - middleware의 경우 서버 측이라고 알고 있는데 왜 유효성 검사가 되지 않고 Next.js의 edge runtime에서 'crypto' 모듈이 지원되지 않는 건지 잘 모르겠음
 -2023.12.22
   > front
   - 'deleteButtone' 컴포넌트 swith-case문 사용해서 컴포넌트 재사용이 가능하도록 함
