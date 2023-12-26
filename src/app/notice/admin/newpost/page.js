@@ -20,7 +20,7 @@ export default function Notice() {
                 />
                 <button
                     onClick={() => {
-                        fetch("/notice/new", {
+                        fetch("/api/notice/new", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json",
@@ -29,7 +29,18 @@ export default function Notice() {
                                 title: title,
                                 content: content,
                             }),
-                        });
+                        })
+                            .then((response) => {
+                                window.location.href = "/notice/list";
+                                response.json();
+                            })
+                            .then((result) => {
+                                if (result.success = true) {
+                                    console.log(result.message);
+                                } else {
+                                    console.log(result.message);
+                                }
+                            });
                     }}
                 >
                     게시물 등록
