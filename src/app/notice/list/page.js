@@ -1,7 +1,26 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 export default function NoticeList() {
-    return(
+    let [data, setData] = useState([]);
+    let [isAdmin, setIsAdmin] = useState([]);
+
+    useEffect(() => {
+        fetch("/api/notice/list")
+            .then((response) => response.json())
+            .then((result) => {
+                if ((result.success = true)) {
+                    setData(result.noticeList);
+                }
+            });
+    }, []);
+
+    return (
         <div>
-            <h2>리스트 페이지 입니다</h2>
+            <div className="notice-header">
+                <h2>공지사항</h2>
+            </div>
         </div>
-    )
+    );
 }
