@@ -11,15 +11,30 @@ export default function NoticeList() {
             .then((response) => response.json())
             .then((result) => {
                 if ((result.success = true)) {
+                    console.log(result.noticeList);
                     setData(result.noticeList);
+                    if (result.decodedToken) {
+                        setIsAdmin(result.decodedToken.role);
+                    }
                 }
             });
     }, []);
+    // console.log("data = " + data[0].author);
+    // console.log("isAdmin = " + isAdmin);
 
     return (
         <div>
             <div className="notice-header">
                 <h2>공지사항</h2>
+            </div>
+            <div>
+                {data.map((item, i) => {
+                    return (
+                        <div className="notice-list" key={i}>
+                            <h4>{data[i].title}</h4>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
