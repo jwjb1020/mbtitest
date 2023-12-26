@@ -17,7 +17,7 @@ export async function middleware(request) {
             // decode()는 유효성 검증 없이 디코딩만 하는 함수
             const decodedSessionToken = jwt.decode(accessToken);
             const role = decodedSessionToken.role;
-            console.log(decodedSessionToken.role);
+            // console.log(decodedSessionToken.role);
 
             if (!role || role !== "ROLE_ADMIN") {
                 // alert("페이지 접속 권한이 없습니다");
