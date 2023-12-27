@@ -4,6 +4,7 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
 
 프로젝트는 [개인노션](https://jwjb1020.notion.site/Mbti-e66a3a109fd049619685b3c9e4ee2fd8?pvs=4)을 이용하여 체계적으로 만들도록 노력함.
 
+
 ## 날짜별 작업 현황
 - 2023.12.27
  > front
@@ -36,7 +37,24 @@ Mbti문제를 사용자가 쉽게 만들고 공유하는 목적으로 만든 웹
     - middleware의 경우 서버 측이라고 알고 있는데 왜 유효성 검사가 되지 않고 Next.js의 edge runtime에서 'crypto' 모듈이 지원되지 않는 건지 잘 모르겠음
 -2023.12.22
   > front
-  - 'deleteButtone' 컴포넌트 swith-case문 사용해서 컴포넌트 재사용이 가능하도록 함
+  - 'deleteButton' 컴포넌트 swith-case문 사용해서 컴포넌트 재사용이 가능하도록 함
+
+
+- 2023.12.18
+  팀원 코드 pull & request
+  > db - 변경사항 없음
+
+  > back
+    - 유저 정보 찾아서 유저아이디와 이름 보내주는 응답 코드 작성
+    - button 타입에 따라 다른 delete api로 이동하는 코드 switch 문으로 구현
+  
+  > front
+    - 시작버튼을 누르면 문제 실행 되는 거 모달로 구현 생각
+    - 문제 작성자 알려주는 p 태그 작성
+    - 삭제 버튼을 누르면 prop로 buttonType 보내고 삭제 후 새로고침
+    - navbar 글자 크기 변경
+  
+
 - 2023.12.17
   팀원 코드 pull & request
   > db
