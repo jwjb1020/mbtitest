@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function NoticeList() {
@@ -31,7 +32,9 @@ export default function NoticeList() {
                 {data.map((item, i) => {
                     return (
                         <div className="notice-list" key={i}>
-                            <h4>{data[i].title}</h4>
+                            <Link href={`/notice/detail/${data[i].notice_id}`}>
+                                <h4>{data[i].title}</h4>
+                            </Link>
                         </div>
                     );
                 })}
