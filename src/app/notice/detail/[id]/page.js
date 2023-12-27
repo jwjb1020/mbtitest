@@ -3,18 +3,16 @@
 import { useEffect, useState } from "react";
 
 export default function Detail(props) {
-
-    let [details, setDetails] = useState([])
+    let [details, setDetails] = useState([]);
 
     useEffect(() => {
-        fetch("/api/post/detail?postId=" + props.params.id)
+        fetch("/api/notice/detail?noticeId=" + props.params.id)
             .then((response) => response.json())
             .then((result) => {
-                // console.log(result.detailedPost[0]);
-                setDetails(result.detailedPost[0])
+                setDetails(result.detailedNotice[0])
             });
     }, []);
-    
+
     return (
         <div>
             <h4>상세페이지</h4>

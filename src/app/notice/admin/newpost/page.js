@@ -2,28 +2,28 @@
 
 import { useState } from "react";
 
-export default function Board() {
+export default function Notice() {
     let [title, setTitle] = useState("");
     let [content, setContent] = useState("");
 
     return (
         <div>
-            <h4>자유게시판 글 작성</h4>
+            <h4>공지사항 게시판</h4>
             <div>
                 <input
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="글 제목"
+                    placeholder="공지사항 제목"
                 />
                 <input
                     onChange={(e) => setContent(e.target.value)}
-                    placeholder="글 내용"
+                    placeholder="공지사항 내용"
                 />
                 <button
                     onClick={() => {
-                        fetch("/api/post/new", {
+                        fetch("/api/notice/new", {
                             method: "POST",
                             headers: {
-                                "Content-Type": "appliication/json",
+                                "Content-Type": "application/json",
                             },
                             body: JSON.stringify({
                                 title: title,
@@ -31,11 +31,11 @@ export default function Board() {
                             }),
                         })
                             .then((response) => {
-                                window.location.href = "/board/list";
+                                window.location.href = "/notice/list";
                                 response.json();
                             })
                             .then((result) => {
-                                if (result.success == true) {
+                                if (result.success = true) {
                                     console.log(result.message);
                                 } else {
                                     console.log(result.message);

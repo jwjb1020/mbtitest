@@ -3,6 +3,7 @@
 import Link from "next/link";
 import DeleteButton from "./DeleteButton";
 import { useEffect, useState } from "react";
+import EditButton from "./EditButton";
 
 export default function ListItem({ data }) {
     const [loginUser, setLoginUser] = useState("");
@@ -31,11 +32,12 @@ export default function ListItem({ data }) {
                         {loginUser == data[i].user_id ? (
                             <div className="list-button">
                                 <Link
+                                    // rel="preload"
                                     className="text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 "
                                     href={`/board/edit/${data[i].post_id}`}
                                 >
                                     수정 ✏️
-                                </Link>
+                                </Link>                          
                                 <DeleteButton
                                     buttonType={"boardDelete"}
                                     data={data}

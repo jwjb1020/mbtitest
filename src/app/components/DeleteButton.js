@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 
 export default function DeleteButton(data) {
-    const router = useRouter();
+    // const router = useRouter();
 
 
     const boardList = (e) => {
@@ -32,6 +32,24 @@ export default function DeleteButton(data) {
                 // window.location.href='/board/list'
             });
     };
+    const noticeList = (e) => {
+        fetch("/api/notice/delete", {
+            method: "DELETE",
+            body: data.data[data.i].notice_id,
+        }).then((response) => {
+            if (response.status == 200) {
+                e.target.closest(".notice-list").style.opacity = 0;
+                setTimeout(() => {
+                    e.target.closest(".notice-list").style.display = "none";
+                }, 500);
+                return response.json();
+            } else if (response.status == 500) {
+                return response.json();
+            }
+        })
+        .then((result) => console.log(result))
+    };
+
     // 문제풀기 삭제 버튼
     const listDelete = () => {
         // console.log("data",data);
@@ -53,14 +71,14 @@ export default function DeleteButton(data) {
     const deleteType = (e) => {
         switch (data.buttonType) {
             case "boardDelete":
-
-                return boardList(e);
-               
+                return boardList(e);               
             case "listDelete":
                 return listDelete();
-
+            case "noticeDelete":
+                return noticeList(e);
         }
     };
+
     return (
         <button
             className="text-white bg-red-400 hover:bg-red-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"

@@ -7,7 +7,7 @@ export default async function handler(request, response) {
         // jwt token 가지고 오기
         const token = request.cookies.jwt;
         // jwt decoding
-        const decodedToken = jwt.verify(token, "test")
+        const decodedToken = jwt.verify(token, process.env.SECRET_KEY)
         // console.log(decodedToken)
 
         request.body = JSON.parse(request.body)
