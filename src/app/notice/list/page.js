@@ -1,5 +1,6 @@
 "use client";
 
+import DeleteButton from "@/app/components/DeleteButton";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -12,7 +13,6 @@ export default function NoticeList() {
             .then((response) => response.json())
             .then((result) => {
                 if ((result.success = true)) {
-                    console.log(result.noticeList);
                     setData(result.noticeList);
                     if (result.decodedToken) {
                         setIsAdmin(result.decodedToken.role);
@@ -20,8 +20,6 @@ export default function NoticeList() {
                 }
             });
     }, []);
-    // console.log("data = " + data[0].author);
-    // console.log("isAdmin = " + isAdmin);
 
     return (
         <div>
@@ -35,6 +33,19 @@ export default function NoticeList() {
                             <Link href={`/notice/detail/${data[i].notice_id}`}>
                                 <h4>{data[i].title}</h4>
                             </Link>
+                            <div className="list-button">
+                                <Link
+                                    className="text-white bg-blue-700 hover:bg-blue-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
+                                    href={`/notice/admin/edit/${data[i].notice_id}`}
+                                >
+                                    수정 ✏️
+                                </Link>
+                                <DeleteButton
+                                    buttonType={"noticeDelete"}
+                                    data={data}
+                                    i={i}
+                                />
+                            </div>
                         </div>
                     );
                 })}
