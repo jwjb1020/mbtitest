@@ -9,7 +9,7 @@ export default function Signup(){
         nickname: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirmPassword: '',     
         sex: 'male', // 기본값 설정
       });
 

@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import Navbar from "./components/Navbar"
 import './globals.css'
-import SignupButton from './components/SignupBotton'
+import Navbar from './components/navbar'
+import SignupButton from './components/signupBotton'
 
 export const metadata = {
   title: 'MbtiTest',
@@ -9,7 +9,6 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-
   
   return (
     <html>
