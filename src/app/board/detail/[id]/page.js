@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export default function Deatil(props) {
+export default function Detail(props) {
 
     let [details, setDetails] = useState([])
 
