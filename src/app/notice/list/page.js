@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function NoticeList() {
     let [data, setData] = useState([]);
-    let [isCondition, setIsCondition] = useState([]);
+    let [isCondition, setIsCondition] = useState([]);   
 
     useEffect(() => {
         fetch("/api/notice/list")
@@ -15,17 +15,28 @@ export default function NoticeList() {
                 if ((result.success = true)) {
                     setData(result.noticeList);
                     if (result.decodedToken) {
-                        setIsCondition(result.decodedToken);
+                        setIsCondition(result.decodedToken);                        
                     }
                 }
             });
     }, []);
-    
+
     return (
         <div>
             <div className="notice-header">
                 <h2>공지사항</h2>
+                {isCondition.role === "ROLE_ADMIN" ? (
+                    <Link
+                        className="text-white bg-green-700 hover:bg-green-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 mr-8"
+                        href="/notice/admin/newpost"
+                    >
+                        글작성
+                    </Link>
+                ) : (
+                    <></>
+                )}
             </div>
+            <hr className="bg-green-700 h-0.5"></hr>
             <div>
                 {data.map((item, i) => {
                     return (
